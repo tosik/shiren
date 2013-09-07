@@ -15,6 +15,8 @@ module.exports = (grunt) ->
           'www/js/all.js': [
             "www/coffee/base/signal.coffee",
             "www/coffee/base/mediator_injector.coffee",
+            "www/coffee/base/command_signal.coffee",
+            "www/coffee/base/command_map.coffee",
             "www/coffee/base/*.coffee",
             "www/coffee/app/**/*.coffee",
             "www/coffee/main.coffee"
