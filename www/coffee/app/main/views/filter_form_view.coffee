@@ -18,5 +18,4 @@ _module_ 'App.Main', ->
 
     getToolKindSelectBox: () ->
       options = ("<option value=\"#{kind.id}\">#{kind.name}</option>" for kind in @toolKinds.list)
-      console.log options
       "<select>#{options.join('')}</select>"
