@@ -1,4 +1,6 @@
 _module_ 'App.Main', ->
   class @SayHelloCommand
+    message: null
+
     execute: ->
-      console.log 'Hello'
+      console.log "Hello #{@message}"

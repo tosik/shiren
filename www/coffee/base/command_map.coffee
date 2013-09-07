@@ -1,11 +1,11 @@
 _module_ 'Base', ->
   class @CommandMap
-    constructor: ->
+    constructor: (@mainInjector) ->
       @injector = new dijon.System()
       @commandSignals = []
 
     when: (signal) ->
-      commandSignal = new Base.CommandSignal(signal, @injector)
+      commandSignal = new Base.CommandSignal(signal, @injector, @mainInjector)
       @register(commandSignal)
       commandSignal
 

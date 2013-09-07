@@ -2,7 +2,7 @@ _module_ 'Base', ->
   class @MediatorInjector
     mediators: {}
 
-    constructor: ->
+    constructor: (@mainInjector) ->
       @injector = new dijon.System()
       @injector.mapOutlet('view')
 
@@ -13,6 +13,7 @@ _module_ 'Base', ->
       @registerView(view)
       mediator = new(eval @getMediatorName(view))
       @injector.injectInto(mediator)
+      @mainInjector.injectInto(mediator)
       mediator.onRegister?()
       @mediators[view] = mediator
 
