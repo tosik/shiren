@@ -17,5 +17,7 @@ _module_ 'App.Main', ->
 
       @injector.mapSingleton("toolKinds", App.Main.ToolKinds)
       @injector.mapOutlet("toolKinds")
+      @injector.mapSingleton("tools", App.Main.Tools)
+      @injector.mapOutlet("tools")
 
     shutdown: ->

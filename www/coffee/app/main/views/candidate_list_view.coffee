@@ -1,30 +1,28 @@
 _module_ 'App.Main', ->
   class @CandidateListView
-    create: ->
-      @root.append(@html)
+    matchedTools: []
 
-    html: """
+    create: ->
+      @root.append(@getHtml())
+
+    getHtml: ->
+      """
       <div class="candidate-list">
-        <table>
-          <tr>
-            <td>□</td>
-            <td>こんにちはの草</td>
-            <td>候補件数</td>
-            <td>説明</td>
-          </tr>
-          <tr>
-            <td>□</td>
-            <td>こんにちはの草</td>
-            <td>候補件数</td>
-            <td>説明</td>
-          </tr>
-          <tr>
-            <td>□</td>
-            <td>こんにちはの草</td>
-            <td>候補件数</td>
-            <td>説明</td>
-          </tr>
-        </table>
+        <table>#{@getToolItems()}</table>
       </div>
-          """
+      """
+
+    getToolItems: ->
+      (@getToolItem(tool) for tool in @matchedTools).join('')
+
+    getToolItem: (tool) ->
+      """
+      <tr>
+        <td><input type="checkbox" /></td>
+        <td>#{tool.name}</td>
+        <td>#{tool.basePurchasePrice}</td>
+        <td>#{tool.baseSellingPrice}</td>
+      </tr>
+      """
+
     
