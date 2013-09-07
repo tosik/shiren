@@ -1,3 +1,6 @@
 _module_ 'App.Main', ->
   class @MainView
-    $el: $('#main')
+    create: (parent) ->
+      parent.append(@html)
+
+    html: "<p>Toshiyuki Hirooka</p>"

@@ -1,6 +1,8 @@
 _module_ 'App.Main', ->
   class @MainContext extends Base.Context
     startup: ->
+      @view.regsiterRootView("main-context")
+
       @injector.mapValue("message", "tosik")
       @injector.mapOutlet("message")
 
