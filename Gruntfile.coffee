@@ -18,6 +18,7 @@ module.exports = (grunt) ->
             "www/coffee/base/command_signal.coffee",
             "www/coffee/base/command_map.coffee",
             "www/coffee/base/*.coffee",
+            "www/coffee/app/*.coffee",
             "www/coffee/app/**/*.coffee",
             "www/coffee/main.coffee"
           ]

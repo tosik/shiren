@@ -4,7 +4,7 @@ _module_ 'Base', ->
     shutdownDone: new Base.Signal
     commandMap: new Base.CommandMap
 
-    constructor: ->
+    constructor: (@sharedSignals = null) ->
       @mediatorInjector = new Base.MediatorInjector
 
       @startup?()
