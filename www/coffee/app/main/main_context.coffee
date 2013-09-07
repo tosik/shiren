@@ -8,11 +8,14 @@ _module_ 'App.Main', ->
 
       @commandMap.when(@startupDone)
         .then(App.Main.SayHelloCommand)
+        .and(App.Main.CreateModelsCommand)
         .and(App.Main.ShowMainViewCommand)
 
       @mediatorMap.map(App.Main.MainView, App.Main.MainViewMediator)
       @mediatorMap.map(App.Main.FilterFormView, App.Main.FilterFormViewMediator)
       @mediatorMap.map(App.Main.CandidateListView, App.Main.CandidateListViewMediator)
 
+      @injector.mapSingleton("toolKinds", App.Main.ToolKinds)
+      @injector.mapOutlet("toolKinds")
 
     shutdown: ->
