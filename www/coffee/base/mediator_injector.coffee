@@ -11,7 +11,7 @@ _module_ 'Base', ->
 
     addView: (view) ->
       @registerView(view)
-      mediator = new(eval @getMediatorName(view))
+      mediator = @injector.instantiate(view.constructor)
       @injector.injectInto(mediator)
       @mainInjector.injectInto(mediator)
       mediator.onRegister?()
@@ -22,5 +22,5 @@ _module_ 'Base', ->
       @mediators[view] = null
       mediator.onRemove?()
 
-    getMediatorName: (view) ->
-      view.constructor.name + "Mediator"
+    map: (viewClass, mediatorClass) ->
+      @injector.mapClass(viewClass, mediatorClass)
