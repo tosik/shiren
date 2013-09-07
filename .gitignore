@@ -1,5 +1,7 @@
 node_modules
 www/js/all.js
 platforms/ios/www/index.html
-platforms/ios/www/js/all.js
-platforms/ios/www/js/index.js
+platforms/ios/www/js/
+platforms/ios/www/coffee
+
+*.log
