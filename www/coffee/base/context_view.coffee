@@ -1,14 +1,9 @@
 _module_ 'Base', ->
-  class @ContextView
+  class @ContextView extends Base.View
     constructor: (@mediatorInjector) ->
 
     regsiterRootView: (contextName) ->
       $("#view").append("<div id=\"#{contextName}\" />")
       @root = $("##{contextName}")
 
-    append: (view) ->
-      @mediatorInjector.addView(view)
-      view.create?(@root)
-
-    remove: (view) ->
-      @mediatorInjector.removeView(view)
+    create: ->

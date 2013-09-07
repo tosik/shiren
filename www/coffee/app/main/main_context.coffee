@@ -11,6 +11,8 @@ _module_ 'App.Main', ->
         .and(App.Main.ShowMainViewCommand)
 
       @mediatorMap.map(App.Main.MainView, App.Main.MainViewMediator)
+      @mediatorMap.map(App.Main.FilterFormView, App.Main.FilterFormViewMediator)
+      @mediatorMap.map(App.Main.CandidateListView, App.Main.CandidateListViewMediator)
 
 
     shutdown: ->

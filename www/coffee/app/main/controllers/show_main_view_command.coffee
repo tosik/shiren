@@ -6,4 +6,5 @@ _module_ 'App.Main', ->
       console.log('show main view')
 
       view = new App.Main.MainView()
+      view.root = @context.view.root
       @context.view.append(view)

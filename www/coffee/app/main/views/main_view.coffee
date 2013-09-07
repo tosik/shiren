@@ -1,6 +1,14 @@
 _module_ 'App.Main', ->
-  class @MainView
-    create: (parent) ->
-      parent.append(@html)
+  class @MainView extends Base.View
+    create: ->
+      (=>
+        view = new App.Main.FilterFormView
+        view.root = @root
+        @append(view)
+      ).call()
 
-    html: "<p>Toshiyuki Hirooka</p>"
+      (=>
+        view = new App.Main.CandidateListView
+        view.root = @root
+        @append(view)
+      ).call()
