@@ -3,6 +3,8 @@ _module_ 'App.Main', ->
     startup: ->
       @injector.mapValue("message", "tosik")
       @injector.mapOutlet("message")
-      @commandMap.when(@startupDone).then(App.Main.SayHelloCommand)
+      @commandMap.when(@startupDone)
+        .then(App.Main.SayHelloCommand)
+        .and(App.Main.ShowMainViewCommand)
 
     shutdown: ->

@@ -8,4 +8,8 @@ _module_ 'Base', ->
         @injector.injectInto(commandClass)
         @mainInjector.injectInto(instance)
         instance.execute?()
+      this
+
+    and: (commandClass) ->
+      @then(commandClass)
 
