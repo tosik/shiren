@@ -3,6 +3,8 @@ _module_ 'Base', ->
     root: undefined
     parent: undefined
     mediatorInjector: undefined
+    $: (query) ->
+      @root.find(query)
 
     append: (view) ->
       view.mediatorInjector = @mediatorInjector
