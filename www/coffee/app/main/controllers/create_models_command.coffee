@@ -23,11 +23,27 @@ _module_ 'App.Main', ->
         @toolKinds.push value
 
     createTools: ->
-      tool = new App.Main.Tool
-      tool.name = "識別の壺"
-      tool.basePurchasePrice = 1000
-      tool.baseSellingPrice = 500
-      tool.intervalPurchasePrice = tool.basePurchasePrice / 10
-      tool.intervalSellingPrice = tool.baseSellingPrice / 10
-      tool.description = "入れたアイテムは識別される。"
-      @tools.push tool
+      items = [
+        {
+          name: "識別の壺"
+          basePurchasePrice: 1000
+          baseSellingPrice: 500
+          intervalPurchasePrice: 100
+          intervalSellingPrice: 50
+          description: "入れたアイテムは識別される。"
+        }
+        {
+          name: "保存の壺"
+          basePurchasePrice: 1600
+          baseSellingPrice: 600
+          intervalPurchasePrice: 160
+          intervalSellingPrice: 60
+          description: "アイテムを出し入れできる。"
+        }
+      ]
+
+      for item in items
+        tool = new App.Main.Tool
+        for key, value of item
+          tool[key] = value
+        @tools.push tool
