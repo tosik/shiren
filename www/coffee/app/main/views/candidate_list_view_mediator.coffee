@@ -1,6 +1,11 @@
 _module_ 'App.Main', ->
   class @CandidateListViewMediator extends Base.Mediator
     tools: null
+    filterForm: null
 
     onRegister: ->
-      @view.matchedTools = @tools.list
+      @filterForm.changed.add => @update()
+      @update()
+
+    update: ->
+      @view.matchedTools = @tools.filter()

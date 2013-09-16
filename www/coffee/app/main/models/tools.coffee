@@ -4,3 +4,9 @@ _module_ 'App.Main', ->
 
     push: (value) ->
       @list.push value
+
+    filter: ->
+      []
+
+    getFilterForm: ->
+      @context.injector.getObject("filterForm")

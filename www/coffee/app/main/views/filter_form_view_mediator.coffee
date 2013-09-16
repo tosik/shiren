@@ -13,4 +13,4 @@ _module_ 'App.Main', ->
       @filterForm.kind = @view.getKind()
       @filterForm.temporaryName = @view.getTemporaryName()
       @filterForm.beforeDistinguishName = @view.getBeforeDistinguishName()
-      console.log @filterForm
+      @filterForm.changed.dispatch()
