@@ -12,9 +12,24 @@ _module_ 'App.Main', ->
     temporaryName: undefined
 
     isMatched: (filterForm) ->
-      filterForm.purchasePrice in @getPurchasePriceList()
+      matched = true
+
+      if filterForm.purchasePrice
+        matched &&= filterForm.purchasePrice in @getPurchasePriceList()
+      if filterForm.sellingPrice
+        matched &&= filterForm.sellingPrice in @getSellingPriceList()
+
+      matched
 
     getPurchasePriceList: () ->
       base = @basePurchasePrice
       interval = @intervalPurchasePrice
+      @getPriceList(base, interval)
+
+    getSellingPriceList: () ->
+      base = @baseSellingPrice
+      interval = @intervalSellingPrice
+      @getPriceList(base, interval)
+
+    getPriceList: (base, interval) ->
       base + interval * i for i in [0..5]
