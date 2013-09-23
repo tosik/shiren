@@ -9,3 +9,4 @@ _module_ 'App.Main', ->
 
     update: ->
       @view.matchedTools = @tools.filter()
+      @view.update()

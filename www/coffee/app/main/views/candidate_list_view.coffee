@@ -1,9 +1,9 @@
 _module_ 'App.Main', ->
-  class @CandidateListView
+  class @CandidateListView extends Base.View
     matchedTools: []
 
     create: ->
-      @root.append(@getHtml())
+      @update()
 
     getHtml: ->
       """
@@ -25,4 +25,6 @@ _module_ 'App.Main', ->
       </tr>
       """
 
-    
+    update: ->
+      @$(".candidate-list").remove()
+      @root.append(@getHtml())
