@@ -31,6 +31,9 @@ _module_ 'App.Main', ->
           intervalPurchasePrice: 100
           intervalSellingPrice: 50
           description: "入れたアイテムは識別される。"
+          kind: "pod"
+          minLevel: 0
+          maxLevel: 5
         }
         {
           name: "保存の壺"
@@ -39,6 +42,9 @@ _module_ 'App.Main', ->
           intervalPurchasePrice: 160
           intervalSellingPrice: 60
           description: "アイテムを出し入れできる。"
+          kind: "pod"
+          minLevel: 0
+          maxLevel: 5
         }
       ]
 
