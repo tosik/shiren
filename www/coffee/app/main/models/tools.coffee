@@ -6,7 +6,7 @@ _module_ 'App.Main', ->
       @list.push value
 
     filter: ->
-      []
+      tool for tool in @list when tool.isMatched(@getFilterForm())
 
     getFilterForm: ->
       @context.injector.getObject("filterForm")
