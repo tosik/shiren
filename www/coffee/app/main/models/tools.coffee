@@ -1,6 +1,9 @@
 _module_ 'App.Main', ->
   class @Tools extends Base.Actor
-    list: []
+    list: null
+
+    constructor: ->
+      @list = []
 
     push: (value) ->
       @list.push value
