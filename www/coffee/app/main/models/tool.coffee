@@ -20,6 +20,8 @@ _module_ 'App.Main', ->
         matched &&= filterForm.purchasePrice == @getPurchasePrice()
       if filterForm.sellingPrice
         matched &&= filterForm.sellingPrice == @getSellingPrice()
+      if filterForm.kind && filterForm.kind != 'none'
+        matched &&= filterForm.kind == @kind
 
       matched
 
