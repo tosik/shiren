@@ -1,10 +1,13 @@
 module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib'
+  grunt.loadNpmTasks 'grunt-mocha-test'
 
   grunt.initConfig
     watch:
       coffee:
-        files: "www/coffee/**/*.coffee",
+        files: [
+          "www/coffee/**/*.coffee",
+          "www/spec/coffee/**/*.coffee"],
         tasks: ["coffee"]
 
     coffee:
@@ -24,6 +27,13 @@ module.exports = (grunt) ->
             "www/coffee/app/**/*.coffee",
             "www/coffee/main.coffee"
           ]
+
+    mochaTest:
+      test:
+        options:
+          reporter: 'spec'
+          require: 'chai'
+        src: ['www/spec/coffee/**/*_spec.coffee']
 
   grunt.registerTask "run", ["coffee", "watch:coffee"]
   grunt.registerTask "default", ["run"]
