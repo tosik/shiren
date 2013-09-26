@@ -14,7 +14,9 @@ _module_ 'App.Main', ->
       @view.update()
 
     register: ->
-      tool = new App.Main.Tool
-      @registeredTools.push tool
-      console.log @tools.list
+      @registeredTools.push tool for tool in @getCheckedTools()
       console.log @registeredTools.list
+
+    getCheckedTools: ->
+      matched = @tools.filter()
+      matched[index] for index in @view.getCheckedItemIndexes()

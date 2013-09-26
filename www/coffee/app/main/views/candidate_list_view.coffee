@@ -5,7 +5,6 @@ _module_ 'App.Main', ->
 
     create: ->
       @update()
-      @$('.candidate-list input[name=register]').click => @registerButtonClicked.dispatch()
 
     getHtml: ->
       """
@@ -16,12 +15,12 @@ _module_ 'App.Main', ->
       """
 
     getToolItems: ->
-      (@getToolItem(tool) for tool in @matchedTools).join('')
+      (@getToolItem(@matchedTools[index], index) for index in [0..@matchedTools.length-1]).join('')
 
-    getToolItem: (tool) ->
+    getToolItem: (tool, index) ->
       """
       <tr>
-        <td><input type="checkbox" /></td>
+        <td><input type="checkbox" data-toolid="#{index}" /></td>
         <td>#{tool.name}</td>
         <td>#{tool.basePurchasePrice}</td>
         <td>#{tool.baseSellingPrice}</td>
@@ -31,3 +30,7 @@ _module_ 'App.Main', ->
     update: ->
       @$(".candidate-list").remove()
       @root.append(@getHtml())
+      @$('.candidate-list input[name=register]').click => @registerButtonClicked.dispatch()
+
+    getCheckedItemIndexes: ->
+      $(item).data("toolid") for item in @$(".candidate-list input[type=checkbox]:checked")
