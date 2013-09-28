@@ -48,8 +48,12 @@ _module_ 'App.Main', ->
         }
       ]
 
+      toolId = 0
+
       for item in items
         tool = new App.Main.Tool
+        toolId += 1
         for key, value of item
           tool[key] = value
+        tool.id = toolId
         @tools.push tool

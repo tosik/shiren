@@ -17,7 +17,6 @@ _module_ 'App.Main', ->
       @mapSingleton("toolKinds", App.Main.ToolKinds)
       @mapSingleton("tools", App.Main.Tools)
       @mapSingleton("filterForm", App.Main.FilterForm)
-      @mapSingleton("registeredTools", App.Main.Tools)
 
     mapSingleton: (name, klass) ->
       @injector.mapSingleton(name, klass)

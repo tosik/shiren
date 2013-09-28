@@ -20,7 +20,7 @@ _module_ 'App.Main', ->
     getToolItem: (tool, index) ->
       """
       <tr>
-        <td><input type="checkbox" data-toolid="#{index}" /></td>
+        <td><input type="checkbox" #{if tool.registered then 'checked' else ''} data-index="#{index}" /></td>
         <td>#{tool.name}</td>
         <td>#{tool.basePurchasePrice}</td>
         <td>#{tool.baseSellingPrice}</td>
@@ -33,4 +33,4 @@ _module_ 'App.Main', ->
       @$('.candidate-list input[name=register]').click => @registerButtonClicked.dispatch()
 
     getCheckedItemIndexes: ->
-      $(item).data("toolid") for item in @$(".candidate-list input[type=checkbox]:checked")
+      $(item).data("index") for item in @$(".candidate-list input[type=checkbox]:checked")

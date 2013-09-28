@@ -2,7 +2,6 @@ _module_ 'App.Main', ->
   class @CandidateListViewMediator extends Base.Mediator
     tools: null
     filterForm: null
-    registeredTools: null
 
     onRegister: ->
       @filterForm.changed.add => @update()
@@ -14,8 +13,8 @@ _module_ 'App.Main', ->
       @view.update()
 
     register: ->
-      @registeredTools.push tool for tool in @getCheckedTools()
-      console.log @registeredTools.list
+      for tool in @getCheckedTools()
+        @tools.find(tool.id)?.register()
 
     getCheckedTools: ->
       matched = @tools.filter()

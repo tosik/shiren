@@ -1,5 +1,7 @@
 _module_ 'App.Main', ->
   class @Tool extends Base.Actor
+    id: undefined
+
     name: undefined
     description: undefined
     basePurchasePrice: undefined
@@ -12,6 +14,8 @@ _module_ 'App.Main', ->
 
     level: undefined
     temporaryName: undefined
+
+    registered: false
 
     equals: (filterForm) ->
       matched = true
@@ -55,6 +59,7 @@ _module_ 'App.Main', ->
     getExpanded: ->
       for level in @getLevelWidth()
         tool = new App.Main.Tool
+        tool.id = @id
         tool.level = level
         tool.basePurchasePrice = @basePurchasePrice
         tool.baseSellingPrice = @baseSellingPrice
@@ -66,3 +71,6 @@ _module_ 'App.Main', ->
         tool.minLevel = @minLevel
         tool.maxLevel = @maxLevel
         tool
+
+    register: ->
+      @registered = true
