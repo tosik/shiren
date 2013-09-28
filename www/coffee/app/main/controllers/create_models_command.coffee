@@ -23,34 +23,9 @@ _module_ 'App.Main', ->
         @toolKinds.push value
 
     createTools: ->
-      items = [
-        {
-          name: "識別の壺"
-          basePurchasePrice: 1000
-          baseSellingPrice: 500
-          intervalPurchasePrice: 100
-          intervalSellingPrice: 50
-          description: "入れたアイテムは識別される。"
-          kind: "pod"
-          minLevel: 0
-          maxLevel: 5
-        }
-        {
-          name: "保存の壺"
-          basePurchasePrice: 1600
-          baseSellingPrice: 600
-          intervalPurchasePrice: 160
-          intervalSellingPrice: 60
-          description: "アイテムを出し入れできる。"
-          kind: "pod"
-          minLevel: 0
-          maxLevel: 5
-        }
-      ]
-
       toolId = 0
 
-      for item in items
+      for item in App.Main.Tools_vo.items
         tool = new App.Main.Tool
         toolId += 1
         for key, value of item
