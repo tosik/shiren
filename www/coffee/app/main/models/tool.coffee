@@ -74,3 +74,6 @@ _module_ 'App.Main', ->
 
     register: ->
       @registered = true
+
+    unregister: ->
+      @registered = false

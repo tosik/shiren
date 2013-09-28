@@ -34,3 +34,16 @@ _module_ 'App.Main', ->
 
     getCheckedItemIndexes: ->
       $(item).data("index") for item in @$(".candidate-list input[type=checkbox]:checked")
+
+    getNotCheckedItemIndexes: ->
+      checkedIndexes = @getCheckedItemIndexes()
+      indexes = [0..@matchedTools.length-1]
+
+      dest = []
+      for index in indexes
+        unless index in checkedIndexes
+          dest.push index
+      console.log indexes
+      console.log checkedIndexes
+      console.log dest
+      dest
