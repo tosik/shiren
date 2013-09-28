@@ -1,7 +1,7 @@
 _module_ 'App.Main', ->
   class @MainContext extends Base.Context
     startup: ->
-      @view.regsiterRootView("main-context")
+      @view.registerRootView("main-context")
 
       @mapValue("message", "tosik")
 
