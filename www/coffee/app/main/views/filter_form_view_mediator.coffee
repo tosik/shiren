@@ -12,5 +12,4 @@ _module_ 'App.Main', ->
       @filterForm.sellingPrice = @view.getSellingPrice()
       @filterForm.kind = @view.getKind()
       @filterForm.temporaryName = @view.getTemporaryName()
-      @filterForm.beforeDistinguishName = @view.getBeforeDistinguishName()
       @filterForm.changed.dispatch()

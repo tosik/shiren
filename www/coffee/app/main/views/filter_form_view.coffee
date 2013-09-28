@@ -17,7 +17,6 @@ _module_ 'App.Main', ->
         <label>買値 <input type="number" name="selling-price" /></label><br />
         <label>種類 #{@getToolKindSelectBox()}</label><br />
         <label>仮名 <input type="textfield" name="temporary-name" /></label><br />
-        <label>未識別名 <input type="textfield" name="before-distinguish-name" /></label><br />
       </div>
       """
 
@@ -29,4 +28,3 @@ _module_ 'App.Main', ->
     getSellingPrice: -> parseInt @$('#filter-form [name=selling-price]').val()
     getKind: -> @$('#filter-form [name=kind]').val()
     getTemporaryName: -> @$('#filter-form [name=temporary-name]').val()
-    getBeforeDistinguishName: -> @$('#filter-form [name=before-distinguish-name]').val()

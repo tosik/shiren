@@ -6,4 +6,3 @@ _module_ 'App.Main', ->
     sellingPrice: null
     kind: null
     temporaryName: null
-    beforeDistinguishName: null
