@@ -1,7 +1,8 @@
 _module_ 'App.Main', ->
   class @CandidateListView extends Base.View
-    matchedTools: []
+    matchedTools: null
     registerButtonClicked: new Base.Signal
+    registeredFilterForms: null
 
     create: ->
       @update()
@@ -24,6 +25,7 @@ _module_ 'App.Main', ->
         <td>#{tool.name}</td>
         <td>#{tool.basePurchasePrice}</td>
         <td>#{tool.baseSellingPrice}</td>
+        #{@getRegisteredFilterFormsTag(tool)}
       </tr>
       """
 
@@ -43,7 +45,19 @@ _module_ 'App.Main', ->
       for index in indexes
         unless index in checkedIndexes
           dest.push index
-      console.log indexes
-      console.log checkedIndexes
-      console.log dest
       dest
+
+    getRegisteredFilterFormsTag: (tool) ->
+      forms = @getRegisteredFilterForms(tool)
+      content = (form.temporaryName for form in forms).join(',')
+      "<td>#{content}</td>"
+
+    getRegisteredFilterForms: (tool) ->
+      forms = []
+      for form in @registeredFilterForms
+        toolIds = (t.id for t in form.registeredTools)
+        console.log @registeredFilterForms
+        if tool.id in toolIds
+          forms.push form
+
+      forms
