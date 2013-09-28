@@ -9,3 +9,4 @@ platforms/ios/HelloWorld.xcodeproj/project.xcworkspace/
 platforms/ios/HelloWorld.xcodeproj/xcuserdata/
 
 *.log
+.DS_Store
