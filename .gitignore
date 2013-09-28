@@ -3,5 +3,9 @@ www/js/all.js
 platforms/ios/www/index.html
 platforms/ios/www/js/
 platforms/ios/www/coffee
+platforms/ios/CordovaLib/CordovaLib.xcodeproj/project.xcworkspace/
+platforms/ios/CordovaLib/CordovaLib.xcodeproj/xcuserdata/
+platforms/ios/HelloWorld.xcodeproj/project.xcworkspace/
+platforms/ios/HelloWorld.xcodeproj/xcuserdata/
 
 *.log
