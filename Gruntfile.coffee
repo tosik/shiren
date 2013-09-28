@@ -16,6 +16,7 @@ module.exports = (grunt) ->
           join: true
         files:
           'www/js/all.js': [
+            "www/coffee/base/extensions/**/*.coffee",
             "www/coffee/base/signal.coffee",
             "www/coffee/base/mediator_injector.coffee",
             "www/coffee/base/command_signal.coffee",
